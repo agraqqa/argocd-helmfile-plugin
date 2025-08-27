@@ -1,5 +1,7 @@
 ## Purpose
 
+This repository is a fork of [bork91/argocd-helmfile-plugin](https://github.com/bork91/argocd-helmfile-plugin) which in turn is based on [lucj/argocd-helmfile-plugin](https://github.com/lucj/argocd-helmfile-plugin) with dependencies updated and support for helmfile.yaml.gotmpl files (basically any helmfile.yaml* files).
+
 This plugin allows [Argo CD](https://github.com/argoproj/argo-cd) to manage applications defined with [Helmfile](https://github.com/helmfile/helmfile).
 
 ## Prerequisite
@@ -12,7 +14,7 @@ In order to test this plugin you need a Kubernetes cluster (it can even be a loc
 - Helmfile ([https://github.com/helmfile/helmfile#installation](https://github.com/helmfile/helmfile#installation))
 - age ([https://github.com/FiloSottile/age](https://github.com/FiloSottile/age))
 
-Note: the installation of `age` is not really a requirement, but this will be useful if you need to encrypt data in values files. 
+Note: the installation of `age` is not really a requirement, but this will be useful if you need to encrypt data in values files.
 
 Ex: installation on Linux / amd64
 
@@ -87,7 +89,7 @@ EOF
 
 #### With `age` key file
 
-If you want to use a private key to encrypt sensitive properties in the values files you can install Argo CD as follows. This will create an age key in *key.txt* of use the one already present. 
+If you want to use a private key to encrypt sensitive properties in the values files you can install Argo CD as follows. This will create an age key in *key.txt* of use the one already present.
 
 ```bash
 cat <<EOF | helmfile apply -f -
@@ -203,7 +205,7 @@ Follow the steps below to make sure Argo CD can use this plugin:
 
 This step allows an admin to encrypt YAML files containing sensitive values and commit them into git. Argo CD will use this key to decrypt the secrets before it can install/update an application.
 
-First make sure you have age installed ([https://github.com/FiloSottile/age](https://github.com/FiloSottile/age)), then create a key:  
+First make sure you have age installed ([https://github.com/FiloSottile/age](https://github.com/FiloSottile/age)), then create a key:
 
 ```sh
 age-keygen > key.txt
@@ -463,4 +465,3 @@ AUTHORS OR COPYRIGHT HOLDERS BE LIABLE FOR ANY CLAIM, DAMAGES OR OTHER
 LIABILITY, WHETHER IN AN ACTION OF CONTRACT, TORT OR OTHERWISE, ARISING FROM,
 OUT OF OR IN CONNECTION WITH THE SOFTWARE OR THE USE OR OTHER DEALINGS IN THE
 SOFTWARE.
-

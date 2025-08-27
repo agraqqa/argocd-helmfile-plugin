@@ -17,4 +17,4 @@ spec:
           helmfile -n "$ARGOCD_APP_NAMESPACE" template --include-crds -q
         fi
   discover:
-    fileName: "./helmfile.yaml"
+    fileName: "./helmfile.yaml*"
